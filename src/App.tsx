@@ -400,7 +400,7 @@ function App() {
       </div>
 
       {/* Build Something Great Section */}
-      <div className="bg-black py-20">
+      <div className="bg-[#011800] py-20">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
