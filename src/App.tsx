@@ -117,12 +117,12 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#001200] text-white">
+    <div className="min-h-screen bg-[#011800] text-white">
       {/* Navigation */}
       <nav className="px-6 py-4 flex items-center justify-between relative">
         <div className="flex items-center space-x-2">
           <BarChart2 className="w-8 h-8" />
-          <span className="text-xl font-bold">NexVest</span>
+          <span className="text-2xl font-bold">NexVest</span>
         </div>
         
         {/* Desktop Menu */}
@@ -262,58 +262,102 @@ function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <div className="container mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+<div className="container mx-auto px-11 py-20 grid md:grid-cols-5 gap-12 items-center">
+  <motion.div
+    initial={{ opacity: 0, x: -50 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8 }}
+    className="md:col-span-2"
+  >
+    <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+      The world's most{' '}
+      <br />
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={words[currentWord]}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.2 }}
+          className="text-yellow-400 inline-block text-6xl"
         >
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-            The world's most{' '}
-            <br />
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={words[currentWord]}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.2 }}
-                className="text-yellow-400 inline-block text-7xl"
-              >
-                {words[currentWord]}
-              </motion.span>
-            </AnimatePresence>
-            {' '}<br />trade app.
-          </h1>
-          <p className="text-lg text-gray-300 mb-8">
-            Get the latest updates regarding market trends, comprehensive analysis tools, and real-time trading insights.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold flex items-center space-x-2 hover:bg-yellow-300 transition-colors"
-          >
-            <span>Get Started</span>
-            <ChevronRight className="w-5 h-5" />
-          </motion.button>
-        </motion.div>
+          {words[currentWord]}
+        </motion.span>
+      </AnimatePresence>
+      {' '}<br />trade app.
+    </h1>
+    <p className="text-lg text-gray-300 mb-8">
+      Get the latest updates regarding market trends, comprehensive analysis tools, and real-time trading insights.
+    </p>
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold flex items-center space-x-2 hover:bg-yellow-300 transition-colors"
+    >
+      <span>Get Started</span>
+      <ChevronRight className="w-9 h-9" />
+    </motion.button>
+  </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative"
+  <motion.div
+  initial={{ opacity: 0, x: 50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+  className="relative md:col-span-3 md:-mr-20 -mx-10 sm:-mx-0"
+>
+  {/* Added extra outer container with background match */}
+  <div className="relative overflow-visible bg-[#011800] p-[1px]">
+    {/* Added background color matching page background */}
+    <div className="relative overflow-hidden transform scale-105 bg-[#011800]">
+      <div className="relative" style={{ 
+        marginTop: -2, 
+        marginLeft: -2, 
+        marginRight: -1, 
+        marginBottom: -1 
+      }}>
+        <video
+          autoPlay 
+          muted 
+          loop
+          className="w-full h-full object-cover pt-1 bg-[#011800]"
+          preload="auto" 
+          style={{ 
+            outline: 'none', 
+            borderWidth: 0,
+            display: 'block' 
+          }}
         >
-          <div className="relative overflow-hidden rounded-[2rem] rounded-tl-[8rem]">
-            <img
-              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80"
-              alt="Trading Graph"
-              className="w-full shadow-2xl"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#001200]/50 to-transparent"></div>
-          </div>
-        </motion.div>
+          <source
+            src="/originalBGVideo.mp4"
+            type="video/mp4"
+          />
+        </video>
+        {/* Base green overlay - KEEPING THIS THE SAME */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#004400] to-[#006600] mix-blend-color opacity-65"></div>
+
+        {/* Top edge specific blending gradient */}
+<div className="absolute top-[-0px] left-0 right-0 h-[50px] bg-gradient-to-b from-[#011800] to-transparent opacity-100 pointer-events-none"></div>
+        
+        {/* Yellow accents - KEEPING THESE THE SAME */}
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/40 via-yellow-500/15 to-transparent mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-yellow-600/35 via-transparent to-transparent mix-blend-color-dodge"></div>
       </div>
+      
+      {/* Additional Left-Top specific border cover */}
+      
+      {/* Edge blending with background color */}
+      <div className="absolute -inset-16 bg-gradient-to-t from-[#011800] via-transparent to-[#011800] opacity-100 pointer-events-none"></div>
+      <div className="absolute -inset-0 bg-gradient-to-t from-[#011800] via-transparent to-[#011800] opacity-100 pointer-events-none"></div>
+
+      
+      
+      {/* Smoother corner blending */}
+      
+      {/* Heavy border mask - significantly thicker to absolutely cover any potential lines */}
+    </div>
+  </div>
+</motion.div>
+  </div>
 
       {/* Why Choose Us Section */}
       <div className="bg-[#001800] py-20">

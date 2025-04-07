@@ -8,7 +8,8 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #001a00;
+  background-color: #001300;
+  overflow-x: hidden;
 }
 
 @layer utilities {
