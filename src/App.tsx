@@ -119,7 +119,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#011800] text-white">
       {/* Navigation */}
-      <nav className="px-6 py-4 flex items-center justify-between relative">
+      <nav className="px-6 py-4 flex items-center justify-between relative z-50">
         <div className="flex items-center space-x-2">
           <BarChart2 className="w-8 h-8" />
           <span className="text-2xl font-bold">NexVest</span>
@@ -141,7 +141,7 @@ function App() {
             </button>
             {showProductsDropdown && (
               <div 
-                className="absolute top-full left-0 mt-2 w-48 bg-[#002200] rounded-lg shadow-lg py-2"
+                className="absolute top-full left-0 mt-2 w-48 bg-[#002200] rounded-lg shadow-lg py-2 z-50"
                 onMouseEnter={handleAlreadyEnteredProductsMouseEnter}
                 onMouseLeave={handleAlreadyEnteredProductsMouseLeave}
               >
@@ -164,7 +164,7 @@ function App() {
             </button>
             {showResourcesDropdown && (
               <div 
-                className="absolute top-full left-0 mt-2 w-48 bg-[#002200] rounded-lg shadow-lg py-2"
+                className="absolute top-full left-0 mt-2 w-48 bg-[#002200] rounded-lg shadow-lg py-2 z-50"
                 onMouseEnter={handleAlreadyEnteredResourcesMouseEnter}
                 onMouseLeave={handleAlreadyEnteredResourcesMouseLeave}
               >
@@ -262,7 +262,7 @@ function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-<div className="container mx-auto px-11 py-20 grid md:grid-cols-5 gap-12 items-center">
+<div className="container mx-auto px-11 py-20 grid md:grid-cols-5 gap-12 items-center z-10">
   <motion.div
     initial={{ opacity: 0, x: -50 }}
     animate={{ opacity: 1, x: 0 }}
@@ -304,6 +304,7 @@ function App() {
   animate={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8 }}
   className="relative md:col-span-3 md:-mr-20 -mx-10 sm:-mx-0"
+  style={{ zIndex: 0 }}
 >
   {/* Added extra outer container with background match */}
   <div className="relative overflow-visible bg-[#011800] p-[1px]">
@@ -319,6 +320,7 @@ function App() {
           autoPlay 
           muted 
           loop
+          playsInline
           className="w-full h-full object-cover pt-1 bg-[#011800]"
           preload="auto" 
           style={{ 
