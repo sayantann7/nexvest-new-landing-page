@@ -13,6 +13,16 @@ function App() {
   const productsTimeoutRef = useRef<number | null>(null);
   const resourcesTimeoutRef = useRef<number | null>(null);
 
+  const [showWelcome, setShowWelcome] = useState(true);
+ 
+   useEffect(() => {
+     const timer = setTimeout(() => {
+       setShowWelcome(false);
+     }, 1200);
+ 
+     return () => clearTimeout(timer);
+   }, []);
+
   // Function to handle Products dropdown mouse events
   const handleProductsMouseEnter = () => {
     if (productsTimeoutRef.current) {
@@ -116,14 +126,59 @@ function App() {
     }
   ];
 
+  const stats = [
+    {
+      number: '4,000+',
+      label: 'Global customers',
+      description: "We've helped over 4,000 amazing global companies."
+    },
+    {
+      number: '2,500+',
+      label: 'Global customers',
+      description: "We've helped over 4,000 amazing global companies."
+    },
+    {
+      number: '10,000+',
+      label: 'Global customers',
+      description: "We've helped over 4,000 amazing global companies."
+    },
+    {
+      number: '3,000+',
+      label: 'Global customers',
+      description: "We've helped over 4,000 amazing global companies."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[#011800] text-white">
+
+
       {/* Navigation */}
       <nav className="px-6 py-4 flex items-center justify-between relative z-50">
         <div className="flex items-center space-x-2">
           <BarChart2 className="w-8 h-8" />
           <span className="text-2xl font-bold">NexVest</span>
         </div>
+
+        <AnimatePresence>
+         {showWelcome && (
+           <motion.div
+             initial={{ opacity: 1 }}
+             exit={{ opacity: 0 }}
+             transition={{ duration: 1.2, ease: "easeInOut" }}
+             className="fixed inset-0 z-50 flex items-center justify-center bg-[#011800]"
+           >
+             <motion.h1
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ duration: 1, ease: "easeInOut" }}
+               className="text-5xl md:text-5xl font-medium tracking-wider text-white"
+             >
+               Welcome To <span className="text-nexvest-green">NexVest</span>
+             </motion.h1>
+           </motion.div>
+         )}
+       </AnimatePresence>
         
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
@@ -414,6 +469,75 @@ function App() {
               data you need to launch and grow your business faster.
             </p>
           </motion.div>
+        </div>
+      </div>
+
+      {/* Global Stats Section */}
+      <div className="bg-[#011800] pt-20 pb-20 overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="relative max-w-6xl mx-auto">
+            {/* Top Stats */}
+            <div className="grid grid-cols-2 gap-0 mb-0">
+              {stats.slice(0, 2).map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <motion.div
+                    initial={{ scale: 0.5 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="text-4xl md:text-5xl font-bold text-yellow-400 mb-0"
+                  >
+                    {stat.number}
+                  </motion.div>
+                  <h3 className="text-lg font-semibold mb-2">{stat.label}</h3>
+                  <p className="text-sm text-gray-400">{stat.description}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Map in center */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative mb-0 w-full flex justify-center items-center"
+            >
+              <img
+                src="/map.png"
+                alt="India Map"
+                className="w-1/2 h-1/2 object-contain mx-auto my-0 p-0 min-w-[300px] min-h-[300px] max-w-[500px] max-h-[500px]"
+              />
+            </motion.div>
+
+            {/* Bottom Stats */}
+            <div className="grid grid-cols-2 gap-8">
+              {stats.slice(2, 4).map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: (index + 2) * 0.1 }}
+                  className="text-center"
+                >
+                  <motion.div
+                    initial={{ scale: 0.5 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: (index + 2) * 0.1 }}
+                    className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2"
+                  >
+                    {stat.number}
+                  </motion.div>
+                  <h3 className="text-lg font-semibold mb-2">{stat.label}</h3>
+                  <p className="text-sm text-gray-400">{stat.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
