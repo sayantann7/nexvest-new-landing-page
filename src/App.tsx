@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, BarChart2, ChevronDown, GraduationCap, BookOpen, FileText, Users, Building2, Headphones, Menu, X } from 'lucide-react';
+import StockTicker from './components/Ticker';
 
 function App() {
   const [currentWord, setCurrentWord] = useState(0);
@@ -161,24 +162,53 @@ function App() {
         </div>
 
         <AnimatePresence>
-         {showWelcome && (
-           <motion.div
-             initial={{ opacity: 1 }}
-             exit={{ opacity: 0 }}
-             transition={{ duration: 1.2, ease: "easeInOut" }}
-             className="fixed inset-0 z-50 flex items-center justify-center bg-[#011800]"
-           >
-             <motion.h1
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ duration: 1, ease: "easeInOut" }}
-               className="text-5xl md:text-5xl font-medium tracking-wider text-white"
-             >
-               Welcome To <span className="text-nexvest-green">NexVest</span>
-             </motion.h1>
-           </motion.div>
-         )}
-       </AnimatePresence>
+  {showWelcome && (
+    <motion.div
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#011800] overflow-hidden"
+    >
+      <div className="text-2xl md:text-4xl font-medium tracking-wider flex items-center">
+        <div className="flex">
+          {"WELCOME TO".split("").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, y: 8, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.02,
+                ease: [0.215, 0.61, 0.355, 1],
+              }}
+              className="inline-block"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </div>
+        <span className="inline-block px-1">{"\u00A0"}</span>
+        <div className="flex">
+          {"NEXVEST".split("").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, y: 8, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: 0.4,
+                delay: "WELCOME TO".length * 0.02 + 0.04 + index * 0.02,
+                ease: [0.215, 0.61, 0.355, 1],
+              }}
+              className="inline-block text-nexvest-green"
+            >
+              {char}
+            </motion.span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
         
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
@@ -315,6 +345,8 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <StockTicker />
 
       {/* Hero Section */}
 <div className="container mx-auto px-11 py-20 grid md:grid-cols-5 gap-12 items-center z-10">
