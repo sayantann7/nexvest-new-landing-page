@@ -69,15 +69,16 @@ const StockTicker = () => {
   const displayStocks = [...displayData, ...displayData, ...displayData];
 
   return (
-    <div className="relative bg-[#011800] overflow-hidden h-12 mb-0 flex items-center">
-      {/* Edge fade effect */}
+    <div className="relative bg-[#011800] overflow-hidden h-12 mb-0">
+      {/* Left and right edge fade effects */}
       <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#011800] to-transparent"></div>
       <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#011800] to-transparent"></div>
       
+      {/* Stock ticker animation - runs behind everything */}
       <motion.div
         initial={{ x: '0%' }}
         animate={controls}
-        className="flex whitespace-nowrap absolute items-center py-2"
+        className="flex whitespace-nowrap absolute items-center py-1 mt-2"
       >
         {displayStocks.map((stock, index) => (
           <div key={index} className="flex items-center mx-5 group cursor-pointer">
@@ -107,6 +108,22 @@ const StockTicker = () => {
           </div>
         ))}
       </motion.div>
+      
+      {/* Center text overlay with gradient borders */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 z-20 flex items-center">
+        <div className="relative flex items-center">
+          {/* Left fade gradient - creates illusion of stocks disappearing */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 -ml-16 bg-gradient-to-r from-transparent to-[#011800]"></div>
+          
+          {/* Text with solid background */}
+          <div className="bg-[#011800] px-0 py-0 font-bold text-yellow-400 text-2xl whitespace-nowrap">
+            Invest in What's <span className='text-yellow-400'>Next</span>
+          </div>
+          
+          {/* Right fade gradient - creates illusion of stocks reappearing */}
+          <div className="absolute right-0 top-0 bottom-0 w-16 -mr-16 bg-gradient-to-l from-transparent to-[#011800]"></div>
+        </div>
+      </div>
     </div>
   );
 };
