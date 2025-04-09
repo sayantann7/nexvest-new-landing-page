@@ -161,7 +161,7 @@ function App() {
           <span className="text-2xl font-bold">NexVest</span>
         </div>
 
-        <AnimatePresence>
+        <motion.div>
   {showWelcome && (
     <motion.div
       initial={{ opacity: 1 }}
@@ -187,7 +187,7 @@ function App() {
             </motion.span>
           ))}
         </div>
-        <span className="inline-block px-1">{"\u00A0"}</span>
+        <span className="inline-block px-1">{" "}</span>
         <div className="flex">
           {"NEXVEST".split("").map((char, index) => (
             <motion.span
@@ -208,7 +208,7 @@ function App() {
       </div>
     </motion.div>
   )}
-</AnimatePresence>
+</motion.div>
         
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
