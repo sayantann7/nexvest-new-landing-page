@@ -161,12 +161,12 @@ function App() {
           <span className="text-2xl font-bold">NexVest</span>
         </div>
 
-        <motion.div>
+        <AnimatePresence>
   {showWelcome && (
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 1, ease: "easeInOut" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-[#011800] overflow-hidden"
     >
       <div className="text-2xl md:text-4xl font-medium tracking-wider flex items-center">
@@ -174,12 +174,12 @@ function App() {
           {"WELCOME TO".split("").map((char, index) => (
             <motion.span
               key={index}
-              initial={{ opacity: 0, y: 8, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.4,
-                delay: index * 0.02,
-                ease: [0.215, 0.61, 0.355, 1],
+                duration: 0.3,
+                delay: index * 0.03,
+                ease: "easeOut",
               }}
               className="inline-block"
             >
@@ -192,12 +192,12 @@ function App() {
           {"NEXVEST".split("").map((char, index) => (
             <motion.span
               key={index}
-              initial={{ opacity: 0, y: 8, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.4,
-                delay: "WELCOME TO".length * 0.02 + 0.04 + index * 0.02,
-                ease: [0.215, 0.61, 0.355, 1],
+                duration: 0.3,
+                delay: "WELCOME TO".length * 0.03 + 0.05 + index * 0.03,
+                ease: "easeOut",
               }}
               className="inline-block text-nexvest-green"
             >
@@ -208,7 +208,7 @@ function App() {
       </div>
     </motion.div>
   )}
-</motion.div>
+</AnimatePresence>
         
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
