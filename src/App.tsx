@@ -151,11 +151,11 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#011800] text-white">
+    <div className="min-h-screen bg-[#0D0C34] text-white">
 
 
       {/* Navigation */}
-      <nav className="px-6 py-4 flex items-center justify-between relative z-50">
+      <nav className="px-6 py-4 flex items-center justify-between relative bg-[#0D0C34] z-50">
         <div className="flex items-center space-x-2">
           <BarChart2 className="w-8 h-8" />
           <span className="text-2xl font-bold">NexVest</span>
@@ -167,9 +167,9 @@ function App() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#011800] overflow-hidden"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#0D0C34] overflow-hidden"
     >
-      <div className="text-2xl md:text-4xl font-medium tracking-wider flex items-center">
+      <div className="text-2xl md:text-4xl font-medium tracking-wider flex items-center text-[#0AFFFF]">
         <div className="flex">
           {"WELCOME TO".split("").map((char, index) => (
             <motion.span
@@ -212,12 +212,12 @@ function App() {
         
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#" className="hover:text-yellow-400 transition-colors">Home</a>
+          <a href="#" className="hover:text-[#0AFFFF] transition-colors">Home</a>
           
           {/* Products Dropdown */}
           <div className="relative">
             <button 
-              className="flex items-center space-x-1 hover:text-yellow-400 transition-colors"
+              className="flex items-center space-x-1 hover:text-[#0AFFFF] transition-colors"
               onMouseEnter={handleProductsMouseEnter}
               onMouseLeave={handleProductsMouseLeave}
             >
@@ -226,13 +226,13 @@ function App() {
             </button>
             {showProductsDropdown && (
               <div 
-                className="absolute top-full left-0 mt-2 w-48 bg-[#002200] rounded-lg shadow-lg py-2 z-50"
+                className="absolute top-full left-0 mt-2 w-48 bg-[#0D0C34] rounded-lg shadow-lg py-2 z-50"
                 onMouseEnter={handleAlreadyEnteredProductsMouseEnter}
                 onMouseLeave={handleAlreadyEnteredProductsMouseLeave}
               >
-                <a href="#" className="block px-4 py-2 hover:bg-[#003300] hover:text-yellow-400">Trading Platform</a>
-                <a href="#" className="block px-4 py-2 hover:bg-[#003300] hover:text-yellow-400">Market Analysis</a>
-                <a href="#" className="block px-4 py-2 hover:bg-[#003300] hover:text-yellow-400">Portfolio Management</a>
+                <a href="#" className="block px-4 py-2 hover:bg-[#0D0C34] hover:text-[#0AFFFF]">Trading Platform</a>
+                <a href="#" className="block px-4 py-2 hover:bg-[#0D0C34] hover:text-[#0AFFFF]">Market Analysis</a>
+                <a href="#" className="block px-4 py-2 hover:bg-[#0D0C34] hover:text-[#0AFFFF]">Portfolio Management</a>
               </div>
             )}
           </div>
@@ -240,7 +240,7 @@ function App() {
           {/* Resources Dropdown */}
           <div className="relative">
             <button 
-              className="flex items-center space-x-1 hover:text-yellow-400 transition-colors"
+              className="flex items-center space-x-1 hover:text-[#0AFFFF] transition-colors"
               onMouseEnter={handleResourcesMouseEnter}
               onMouseLeave={handleResourcesMouseLeave}
             >
@@ -249,18 +249,18 @@ function App() {
             </button>
             {showResourcesDropdown && (
               <div 
-                className="absolute top-full left-0 mt-2 w-48 bg-[#002200] rounded-lg shadow-lg py-2 z-50"
+                className="absolute top-full left-0 mt-2 w-48 bg-[#0D0C34] rounded-lg shadow-lg py-2 z-50"
                 onMouseEnter={handleAlreadyEnteredResourcesMouseEnter}
                 onMouseLeave={handleAlreadyEnteredResourcesMouseLeave}
               >
-                <a href="#" className="block px-4 py-2 hover:bg-[#003300] hover:text-yellow-400">Documentation</a>
-                <a href="#" className="block px-4 py-2 hover:bg-[#003300] hover:text-yellow-400">API Reference</a>
-                <a href="#" className="block px-4 py-2 hover:bg-[#003300] hover:text-yellow-400">Tutorials</a>
+                <a href="#" className="block px-4 py-2 hover:bg-[#0D0C34] hover:text-[#0AFFFF]">Documentation</a>
+                <a href="#" className="block px-4 py-2 hover:bg-[#0D0C34] hover:text-[#0AFFFF]">API Reference</a>
+                <a href="#" className="block px-4 py-2 hover:bg-[#0D0C34] hover:text-[#0AFFFF]">Tutorials</a>
               </div>
             )}
           </div>
 
-          <a href="#" className="hover:text-yellow-400 transition-colors">Pricing</a>
+          <a href="#" className="hover:text-[#0AFFFF] transition-colors">Pricing</a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -349,14 +349,14 @@ function App() {
       <StockTicker />
 
       {/* Hero Section */}
-<div className="container mx-auto px-11 py-20 grid md:grid-cols-5 gap-12 items-center z-10">
+<div className="container mx-auto px-11 py-20 grid md:grid-cols-5 gap-12 items-center bg-[#0D0C34] z-10">
   <motion.div
     initial={{ opacity: 0, x: -50 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8 }}
     className="md:col-span-2"
   >
-    <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+    <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-white">
       The world's most{' '}
       <br />
       <AnimatePresence mode="wait">
@@ -366,37 +366,35 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.2 }}
-          className="text-yellow-400 inline-block text-6xl"
+          className="text-[#0AFFFF] inline-block text-6xl"
         >
           {words[currentWord]}
         </motion.span>
       </AnimatePresence>
       {' '}<br />trade app.
     </h1>
-    <p className="text-lg text-gray-300 mb-8">
+    <p className="text-lg text-white mb-8">
       Get the latest updates regarding market trends, comprehensive analysis tools, and real-time trading insights.
     </p>
     <motion.button
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold flex items-center space-x-2 hover:bg-yellow-300 transition-colors"
+      className="bg-[#0AFFFF] text-black px-8 py-4 rounded-full font-semibold flex items-center space-x-2 hover:bg-yellow-300 transition-colors"
     >
       <span>Get Started</span>
       <ChevronRight className="w-9 h-9" />
     </motion.button>
   </motion.div>
 
-  <motion.div
+<motion.div
   initial={{ opacity: 0, x: 50 }}
   animate={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8 }}
   className="relative md:col-span-3 md:-mr-20 -mx-10 sm:-mx-0"
   style={{ zIndex: 0 }}
 >
-  {/* Added extra outer container with background match */}
-  <div className="relative overflow-visible bg-[#011800] p-[1px]">
-    {/* Added background color matching page background */}
-    <div className="relative overflow-hidden transform scale-105 bg-[#011800]">
+  <div className="relative overflow-visible bg-[#0D0C34] p-[1px]">
+    <div className="relative overflow-hidden transform scale-105">
       <div className="relative" style={{ 
         marginTop: -2, 
         marginLeft: -2, 
@@ -408,7 +406,7 @@ function App() {
           muted 
           loop
           playsInline
-          className="w-full h-full object-cover pt-1 bg-[#011800]"
+          className="w-full h-full object-cover pt-1"
           preload="auto" 
           style={{ 
             outline: 'none', 
@@ -417,45 +415,29 @@ function App() {
           }}
         >
           <source
-            src="/originalBGVideo.mp4"
+            src="/vid2.mp4"
             type="video/mp4"
           />
         </video>
-        {/* Base green overlay - KEEPING THIS THE SAME */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#004400] to-[#006600] mix-blend-color opacity-65"></div>
-
-        {/* Top edge specific blending gradient */}
-<div className="absolute top-[-0px] left-0 right-0 h-[50px] bg-gradient-to-b from-[#011800] to-transparent opacity-100 pointer-events-none"></div>
         
-        {/* Yellow accents - KEEPING THESE THE SAME */}
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/40 via-yellow-500/15 to-transparent mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-yellow-600/35 via-transparent to-transparent mix-blend-color-dodge"></div>
+        {/* Only keeping minimal edge blending for smooth transition to background */}
+        <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[#0D0C34] to-transparent pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#0D0C34] to-transparent pointer-events-none"></div>
       </div>
-      
-      {/* Additional Left-Top specific border cover */}
-      
-      {/* Edge blending with background color */}
-      <div className="absolute -inset-16 bg-gradient-to-t from-[#011800] via-transparent to-[#011800] opacity-100 pointer-events-none"></div>
-      <div className="absolute -inset-0 bg-gradient-to-t from-[#011800] via-transparent to-[#011800] opacity-100 pointer-events-none"></div>
-
-      
-      
-      {/* Smoother corner blending */}
-      
-      {/* Heavy border mask - significantly thicker to absolutely cover any potential lines */}
     </div>
   </div>
 </motion.div>
+
   </div>
 
       {/* Why Choose Us Section */}
-      <div className="bg-[#001800] py-20">
+      <div className="bg-[#0D0C34] py-20">
         <div className="container mx-auto px-6">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-bold mb-16 text-center"
+            className="text-4xl font-bold mb-16 text-center text-white"
           >
             WHY CHOOSE US
           </motion.h2>
@@ -467,14 +449,14 @@ function App() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#002200] p-6 rounded-lg border border-[#004400] hover:border-yellow-400 transition-colors"
+                className="bg-[#0D0C34] p-6 rounded-lg border border-[#0AFFFF] hover:border-[#0AFFFF] transition-colors"
               >
-                <feature.icon className="w-12 h-12 text-yellow-400 mb-4" />
+                <feature.icon className="w-12 h-12 text-[#0AFFFF] mb-4" />
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
                 <p className="text-gray-400">{feature.description}</p>
                 <motion.a
                   href="#"
-                  className="inline-flex items-center space-x-2 text-yellow-400 mt-4 hover:text-yellow-300"
+                  className="inline-flex items-center space-x-2 text-[#0AFFFF] mt-4"
                   whileHover={{ x: 5 }}
                 >
                   <span>View Details</span>
@@ -487,7 +469,7 @@ function App() {
       </div>
 
       {/* Build Something Great Section */}
-      <div className="bg-[#011800] py-20">
+      <div className="bg-[#0D0C34] py-20">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -505,7 +487,7 @@ function App() {
       </div>
 
       {/* Global Stats Section */}
-      <div className="bg-[#011800] pt-20 pb-20 overflow-hidden">
+      <div className="bg-[#0D0C34] pt-20 pb-20 overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="relative max-w-6xl mx-auto">
             {/* Top Stats */}
@@ -522,7 +504,7 @@ function App() {
                     initial={{ scale: 0.5 }}
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="text-4xl md:text-5xl font-bold text-yellow-400 mb-0"
+                    className="text-4xl md:text-5xl font-bold text-[#0AFFFF] mb-0"
                   >
                     {stat.number}
                   </motion.div>
@@ -560,7 +542,7 @@ function App() {
                     initial={{ scale: 0.5 }}
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 0.5, delay: (index + 2) * 0.1 }}
-                    className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2"
+                    className="text-4xl md:text-5xl font-bold text-[#0AFFFF] mb-2"
                   >
                     {stat.number}
                   </motion.div>

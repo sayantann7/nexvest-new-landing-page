@@ -69,10 +69,10 @@ const StockTicker = () => {
   const displayStocks = [...displayData, ...displayData, ...displayData];
 
   return (
-    <div className="relative bg-[#011800] overflow-hidden h-12 mb-0">
+    <div className="relative bg-[#0D0C34] overflow-hidden h-12 mb-0">
       {/* Left and right edge fade effects */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#011800] to-transparent"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#011800] to-transparent"></div>
+      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#0D0C34] to-transparent"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#0D0C34] to-transparent"></div>
       
       {/* Stock ticker animation - runs behind everything */}
       <motion.div
@@ -82,20 +82,20 @@ const StockTicker = () => {
       >
         {displayStocks.map((stock, index) => (
           <div key={index} className="flex items-center mx-5 group cursor-pointer">
-            <span className="font-semibold text-yellow-400 group-hover:text-yellow-300 transition-colors">
+            <span className="font-semibold text-white transition-colors">
               {stock.company}
             </span>
-            <span className="mx-2 text-white">
+            <span className="mx-2 text-[#0AFFFF] font-semibold">
               {stock.price.toFixed(2)}
             </span>
             <motion.span 
               whileHover={{ scale: 1.1 }}
               className={`${
                 stock.percent_change > 0 
-                  ? 'text-green-400' 
+                  ? 'text-white' 
                   : stock.percent_change < 0 
-                    ? 'text-red-400' 
-                    : 'text-gray-400'
+                    ? 'text-white' 
+                    : 'text-white'
                 } font-medium`}
             >
               ({stock.percent_change > 0 ? '+' : ''}{stock.percent_change.toFixed(2)}%)
@@ -113,15 +113,15 @@ const StockTicker = () => {
       <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 z-20 flex items-center">
         <div className="relative flex items-center">
           {/* Left fade gradient - creates illusion of stocks disappearing */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 -ml-16 bg-gradient-to-r from-transparent to-[#011800]"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-16 -ml-16 bg-gradient-to-r from-transparent to-[#0D0C34]"></div>
           
           {/* Text with solid background */}
-          <div className="bg-[#011800] px-0 py-0 font-bold text-yellow-400 text-2xl whitespace-nowrap">
-            Invest in What's <span className='text-yellow-400'>Next</span>
+          <div className="bg-[#0D0C34] px-0 py-0 font-bold text-white text-2xl whitespace-nowrap">
+            Invest in What's <span className='text-[#0AFFFF]'>Next</span>
           </div>
           
           {/* Right fade gradient - creates illusion of stocks reappearing */}
-          <div className="absolute right-0 top-0 bottom-0 w-16 -mr-16 bg-gradient-to-l from-transparent to-[#011800]"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-16 -mr-16 bg-gradient-to-l from-transparent to-[#0D0C34]"></div>
         </div>
       </div>
     </div>
