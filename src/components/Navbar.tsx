@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { BarChart2, ChevronDown, Menu, X } from 'lucide-react';
+import WelcomeAnimation from "../components/WelcomeAnimation";
 
 function Navbar() {
 
@@ -86,6 +87,8 @@ function Navbar() {
 
     return (
         <nav className="px-6 py-4 flex items-center justify-between relative bg-[#0D0C34] z-50">
+            {/* Welcome Animation */}
+            < WelcomeAnimation />
             <div className="flex items-center space-x-2">
                 <BarChart2 className="w-8 h-8" />
                 <span className="text-2xl font-bold">NexVest</span>
