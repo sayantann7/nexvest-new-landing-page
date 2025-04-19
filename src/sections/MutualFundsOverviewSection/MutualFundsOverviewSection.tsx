@@ -32,19 +32,19 @@ export const MutualFundsOverviewSection = (): JSX.Element => {
     <section className="w-full py-24 bg-gradient-to-b from-[#fdfffc] to-[#f5f7ff] overflow-hidden relative">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0d0c34] mb-4"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            What are <span className="text-[#0d0c34] relative">
+            What are <span className="text-[#0d0c34] relative inline-block">
               Mutual Funds
               <span className="absolute -bottom-2 left-0 w-full h-2 bg-[#09ffec]/60"></span>
             </span>?
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="max-w-3xl mx-auto text-lg text-gray-600"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -58,7 +58,7 @@ export const MutualFundsOverviewSection = (): JSX.Element => {
         {/* Cards container - side-by-side layout */}
         <div className="flex flex-col md:flex-row gap-8 mb-32">
           {/* Left Card - Illustration with enhanced styling */}
-          <motion.div 
+          <motion.div
             className="w-full md:w-1/2"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -83,7 +83,7 @@ export const MutualFundsOverviewSection = (): JSX.Element => {
           </motion.div>
 
           {/* Right Card - Explanation with enhanced styling */}
-          <motion.div 
+          <motion.div
             className="w-full md:w-1/2"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -96,13 +96,13 @@ export const MutualFundsOverviewSection = (): JSX.Element => {
                   <h2 className="text-3xl md:text-[40px] font-bold text-white font-['Inter',Helvetica] mb-2">
                     Understanding Mutual Funds
                   </h2>
-                  
+
                   <div className="border-l-4 border-[#09ffec] pl-4">
                     <p className="text-[16px] font-normal text-gray-200 leading-relaxed font-['Inter',Helvetica]">
                       An investment vehicle where multiple investors pool their funds, which are then invested by professional fund managers across various asset classes including stocks, bonds, and other securities.
                     </p>
                   </div>
-                  
+
                   <div className="mt-2">
                     <p className="text-[15px] font-normal text-gray-300 leading-relaxed mb-4">
                       The fund manager makes investment decisions based on the fund's objectives, aiming to generate returns for all investors, who share in the profits or losses proportionally to their investment.
@@ -116,7 +116,7 @@ export const MutualFundsOverviewSection = (): JSX.Element => {
 
         {/* Benefits section - replacing decorative dots with meaningful content */}
         <div className="mt-16">
-          <motion.h3 
+          <motion.h3
             className="text-2xl md:text-3xl font-bold text-[#0d0c34] mb-10 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -125,7 +125,7 @@ export const MutualFundsOverviewSection = (): JSX.Element => {
           >
             Key Benefits of Mutual Funds
           </motion.h3>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <motion.div
@@ -145,9 +145,9 @@ export const MutualFundsOverviewSection = (): JSX.Element => {
             ))}
           </div>
         </div>
-        
+
         {/* Call to action */}
-        <motion.div 
+        <motion.div
           className="mt-20 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

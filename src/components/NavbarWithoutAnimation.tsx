@@ -191,7 +191,8 @@ function NavbarWithoutAnimation() {
                             </div>
                             <div className="flex flex-col h-full">
                                 <div className="px-6 py-8 flex flex-col space-y-6 flex-grow">
-                                    <a href="#" className="text-lg hover:text-yellow-400 transition-colors">Home</a>
+                                    <Link to="/" className="text-lg hover:text-yellow-400 transition-colors">Home</Link>
+                                    <Link to="/mutual-funds" className="text-lg hover:text-yellow-400 transition-colors">Mutual Funds</Link>
                                     <div className="space-y-4">
                                         <p className="text-lg font-semibold">Products</p>
                                         <div className="pl-4 flex flex-col space-y-3">
