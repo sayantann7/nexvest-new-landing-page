@@ -91,12 +91,12 @@ function Navbar() {
             < WelcomeAnimation />
             <div className="flex items-center space-x-2">
                 <BarChart2 className="w-8 h-8" />
-                <span className="text-2xl font-bold">NexVest</span>
+                <span className="text-2xl font-bold"><Link to="/" className="hover:text-[#0AFFFF] transition-colors">NexVest</Link></span>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-                <a href="#" className="hover:text-[#0AFFFF] transition-colors">Home</a>
+                <Link to="/" className="hover:text-[#0AFFFF] transition-colors">Home</Link>
 
                 <Link to="/mutual-funds" className="hover:text-[#0AFFFF] transition-colors">Mutual Funds</Link>
 
@@ -146,7 +146,7 @@ function Navbar() {
                     )}
                 </div>
 
-                <a href="#" className="hover:text-[#0AFFFF] transition-colors">Pricing</a>
+                {/* <a href="#" className="hover:text-[#0AFFFF] transition-colors">Pricing</a> */}
             </div>
 
             {/* Mobile Menu Button */}
