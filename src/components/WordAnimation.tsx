@@ -45,7 +45,7 @@ function WordAnimation() {
             <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#0AFFFF] text-black px-8 py-4 rounded-full font-semibold flex items-center space-x-2 hover:bg-yellow-300 transition-colors"
+                className="bg-[#0AFFFF] text-black px-8 py-4 rounded-full font-semibold flex items-center space-x-2 transition-colors"
             >
                 <span>Get Started</span>
                 <ChevronRight className="w-9 h-9" />
