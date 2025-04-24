@@ -1,89 +1,301 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { motion } from "framer-motion";
-import { ChevronRight, TrendingUp, BarChart2, PieChart } from "lucide-react";
+import { ChevronRight, TrendingUp, BarChart2, PieChart, ChevronDown } from "lucide-react";
 
 const equityFundData = [
   {
-    name: "Bandhan Small Cap Fund",
-    logo: "/mutualFund/bandhan.png",
-    returns: "37.25% p.a.",
+    name: "Quant Small Cap Fund",
+    logo: "/mutualFund/quant.png",
+    returns: "+25.62% p.a.",
   },
   {
-    name: "Bandhan Small Cap Fund",
-    logo: "/mutualFund/bandhan-1.png",
-    returns: "37.25% p.a.",
+    name: "Nippon India Small Cap Fund",
+    logo: "/mutualFund/nippon.png",
+    returns: "+24.22% p.a.",
   },
   {
-    name: "HDFC Mid-Cap Opportunities Fund",
-    logo: "/mutualFund/hdfc.png",
-    returns: "33.14% p.a.",
-    twoLines: true,
+    name: "Quant Infrastructure Fund",
+    logo: "/mutualFund/quant.png",
+    returns: "+24.06% p.a.",
   },
-  { name: "HDFC Focused 30 Fund", logo: "/hdfc-1.png", returns: "31.42% p.a." },
+  { name: "Quant ELSS Tax Saver Fund", logo: "/mutualFund/quant.png", returns: "+23.08% p.a." },
   {
-    name: "ICICI Prudential Large & Mid Cap Fund",
-    logo: "/mutualFund/icici-prudential.png",
-    returns: "30.59% p.a.",
-    twoLines: true,
+    name: "Motilal Oswal Midcap Fund",
+    logo: "/mutualFund/motilal.svg",
+    returns: "+22.86% p.a.",
   },
-  { name: "HDFC Flexi Cap Fund", logo: "/hdfc-2.png", returns: "30.58% p.a." },
+  { name: "Quant Mid Cap Fund", logo: "/mutualFund/quant.png", returns: "+22.82% p.a." },
+  { name: "Quant Flexi Cap Fund", logo: "/mutualFund/quant.png", returns: "+22.55% p.a." },
+  { name: "Edelweiss Mid Cap Fund", logo: "/mutualFund/edelweiss.png", returns: "(+22.47% p.a." },
+  { name: "ICICI Prudential Infrastructure Fund", logo: "/mutualFund/icici.jpg", returns: "+22.38% p.a." },
+  { name: "Invesco India Infrastructure Fund", logo: "/mutualFund/invesco.png", returns: "+22.23% p.a." },
 ];
 
 const debtFundData = [
   {
-    name: "Bandhan Small Cap Fund",
-    logo: "/mutualFund/bandhan-2.png",
-    returns: "37.25% p.a.",
+    name: "Aditya Birla Sun Life Medium Term Fund",
+    logo: "/mutualFund/adityabirla.png",
+    returns: "+10.36% p.a.",
   },
   {
-    name: "Bandhan Small Cap Fund",
-    logo: "/mutualFund/bandhan-3.png",
-    returns: "37.25% p.a.",
+    name: "Aditya Birla Sun Life Credit Risk Fund",
+    logo: "/mutualFund/adityabirla.png",
+    returns: "+9.47% p.a.",
   },
   {
-    name: "HDFC Mid-Cap Opportunities Fund",
-    logo: "/mutualFund/hdfc-3.png",
-    returns: "33.14% p.a.",
-    twoLines: true,
+    name: "DSP Gilt Fund",
+    logo: "/mutualFund/dsp.png",
+    returns: "+8.76% p.a.",
   },
-  { name: "HDFC Focused 30 Fund", logo: "/hdfc-4.png", returns: "31.42% p.a." },
+  { name: "Baroda BNP Paribas Credit Risk Fund", logo: "mutualFund/baroda.png", returns: "+8.68% p.a." },
   {
-    name: "ICICI Prudential Large & Mid Cap Fund",
-    logo: "/mutualFund/icici-prudential-1.png",
-    returns: "30.59% p.a.",
-    twoLines: true,
+    name: "ICICI Prudential All Seasons Bond Fund",
+    logo: "/mutualFund/icici.jpg",
+    returns: "+8.66% p.a.",
   },
-  { name: "HDFC Flexi Cap Fund", logo: "/hdfc-5.png", returns: "30.58% p.a." },
+  {
+    name: "SBI Magnum Gilt Fund",
+    logo: "/mutualFund/sbi.jpg",
+    returns: "+8.66% p.a.",
+  },
+  {
+    name: "Bandhan GSF Investment Fund",
+    logo: "/mutualFund/bandhan.jpg",
+    returns: "+8.62% p.a.",
+  },
+  {
+    name: "Edelweiss Government Securities Fund",
+    logo: "/mutualFund/edelweiss.png",
+    returns: "+8.55% p.a.",
+  },
+  {
+    name: "ICICI Prudential Gilt Fund",
+    logo: "/mutualFund/icici.jpg",
+    returns: "+8.53% p.a.",
+  },
+  {
+    name: "Kotak Gilt Investment Fund",
+    logo: "/mutualFund/kotak.png",
+    returns: "+8.52% p.a.",
+  },
 ];
 
 const hybridFundData = [
   {
-    name: "Bandhan Small Cap Fund",
-    logo: "/mutualFund/bandhan-4.png",
-    returns: "37.25% p.a.",
+    name: "Quant Multi Asset Fund",
+    logo: "/mutualFund/quant.png",
+    returns: "+21.23% p.a.",
   },
   {
-    name: "Bandhan Small Cap Fund",
-    logo: "/mutualFund/bandhan-5.png",
-    returns: "37.25% p.a.",
+    name: "ICICI Prudential Equity & Debt Fund",
+    logo: "/mutualFund/icici.jpg",
+    returns: "+18.81% p.a.",
   },
   {
-    name: "HDFC Mid-Cap Opportunities Fund",
-    logo: "/mutualFund/hdfc-6.png",
-    returns: "33.14% p.a.",
-    twoLines: true,
+    name: "Quant Absolute Fund",
+    logo: "/mutualFund/quant.png",
+    returns: "+18.51% p.a.",
   },
-  { name: "HDFC Focused 30 Fund", logo: "/hdfc-7.png", returns: "31.42% p.a." },
   {
-    name: "ICICI Prudential Large & Mid Cap Fund",
-    logo: "/mutualFund/icici-prudential-2.png",
-    returns: "30.59% p.a.",
-    twoLines: true,
+    name: "ICICI Prudential Multi Asset Fund",
+    logo: "/mutualFund/icici.jpg",
+    returns: "+18.38% p.a.",
   },
-  { name: "HDFC Flexi Cap Fund", logo: "/hdfc-8.png", returns: "30.58% p.a." },
+  {
+    name: "HDFC Balanced Advantage Fund",
+    logo: "/mutualFund/hdfc.png",
+    returns: "+17.65% p.a.",
+  },
+  {
+    name: "Kotak Multi Asset Allocator FoF - Dynamic",
+    logo: "/mutualFund/kotak.png",
+    returns: "+17.32% p.a.",
+  },
+  {
+    name: "JM Aggressive Hybrid Fund",
+    logo: "/mutualFund/jm.png",
+    returns: "+17.02% p.a.",
+  },
+  {
+    name: "Edelweiss Aggressive Hybrid Fund",
+    logo: "/mutualFund/edelweiss.png",
+    returns: "+16.61% p.a.",
+  },
+  {
+    name: "Kotak Equity Hybrid Fund",
+    logo: "/mutualFund/kotak.png",
+    returns: "+15.80% p.a.",
+  },
+  {
+    name: "DSP Aggressive Hybrid Fund",
+    logo: "/mutualFund/dsp.png",
+    returns: "+15.53% p.a.",
+  }
 ];
+
+const elssFundData = [
+  {
+    name: "Kotak ELSS Tax Saver Fund",
+    logo: "/mutualFund/kotak.png",
+    returns: "+17.36% p.a.",
+  },
+  {
+    name: "Canara Robeco ELSS Tax Saver",
+    logo: "/mutualFund/canara.png",
+    returns: "+17.36% p.a.",
+  },
+  {
+    name: "Franklin India ELSS Tax Saver Fund",
+    logo: "/mutualFund/frankling.png",
+    returns: "+17.02% p.a.",
+  },
+  {
+    name: "Invesco India ELSS Tax Saver Fund",
+    logo: "/mutualFund/invesco.png",
+    returns: "+16.50% p.a.",
+  },
+  {
+    name: "Tata ELSS Tax Saver Fund",
+    logo: "/mutualFund/tata.png",
+    returns: "+16.44% p.a.",
+  },
+  {
+    name: "ICICI Prudential ELSS Tax Saver",
+    logo: "/mutualFund/icici.jpg",
+    returns: "+16.13% p.a.",
+  },
+  {
+    name: "HSBC ELSS Tax Saver Fund",
+    logo: "/mutualFund/hsbc.png",
+    returns: "+15.87% p.a.",
+  },
+  {
+    name: "Baroda BNP Paribas ELSS Tax Saver Fund",
+    logo: "/mutualFund/baroda.png",
+    returns: "+15.86% p.a.",
+  },
+  {
+    name: "Union ELSS Tax Saver Fund",
+    logo: "/mutualFund/union.png",
+    returns: "+15.63% p.a.",
+  },
+  {
+    name: "Edelweiss ELSS Tax Saver Fund",
+    logo: "/mutualFund/edelweiss.png",
+    returns: "+15.49% p.a.",
+  },
+];
+
+const indexFundData = [
+  {
+    name: "ICICI Prudential Nifty Next 50 Index Fund",
+    logo: "/mutualFund/icici.jpg",
+    returns: "+15.17% p.a.",
+  },
+  {
+    name: "Sundaram Nifty 100 Equal Weight Fund",
+    logo: "/mutualFund/sundaram.png",
+    returns: "+14.69% p.a.",
+  },
+  {
+    name: "Bandhan Nifty 50 Index Fund",
+    logo: "/mutualFund/bandhan.jpg",
+    returns: "+14.42% p.a.",
+  },
+  {
+    name: "UTI Nifty 50 Index Fund",
+    logo: "/mutualFund/uti.png",
+    returns: "+14.34% p.a.",
+  },
+  {
+    name: "HDFC Nifty 50 Index Fund",
+    logo: "/mutualFund/hdfc.png",
+    returns: "+14.28% p.a.",
+  },
+  {
+    name: "Tata Nifty 50 Index Fund",
+    logo: "/mutualFund/tata.png",
+    returns: "+14.25% p.a.",
+  },
+  {
+    name: "Nippon India Index Nifty 50",
+    logo: "/mutualFund/nippon.png",
+    returns: "+14.24% p.a.",
+  },
+  {
+    name: "ICICI Prudential Nifty 50 Index Fund",
+    logo: "/mutualFund/icici.jpg",
+    returns: "+14.23% p.a.",
+  },
+  {
+    name: "SBI Nifty Index Fund",
+    logo: "/mutualFund/sbi.jpg",
+    returns: "+14.21% p.a.",
+  },
+  {
+    name: "HDFC BSE Sensex Index Fund",
+    logo: "/mutualFund/hdfc.png",
+    returns: "+14.19% p.a.",
+  },
+];
+
+
+const goldFundData = [
+  {
+    name: "Nippon India Gold Savings Fund",
+    logo: "/mutualFund/nippon.png",
+    returns: "+15.82% p.a.",
+  },
+  {
+    name: "Zerodha Gold ETF FoF",
+    logo: "/mutualFund/zerodha.png",
+    returns: "NA",
+  },
+  {
+    name: "Union Gold ETF FoF",
+    logo: "/mutualFund/union.png",
+    returns: "NA",
+  },
+  {
+    name: "UTI Silver ETF FoF",
+    logo: "/mutualFund/uti.png",
+    returns: "NA",
+  },
+  {
+    name: "UTI Gold ETF FoF",
+    logo: "/mutualFund/uti.png",
+    returns: "NA",
+  },
+  {
+    name: "Tata Silver ETF FoF",
+    logo: "/mutualFund/tata.png",
+    returns: "NA",
+  },
+  {
+    name: "Tata Gold ETF FoF",
+    logo: "/mutualFund/tata.png",
+    returns: "NA",
+  },
+  {
+    name: "SBI Silver ETF FoF",
+    logo: "/mutualFund/sbi.jpg",
+    returns: "NA",
+  },
+  {
+    name: "Nippon India Silver ETF FoF",
+    logo: "/mutualFund/nippon.png",
+    returns: "NA",
+  },
+  {
+    name: "Motilal Oswal Gold and Silver ETFs FoF",
+    logo: "/mutualFund/motilaloswal.png",
+    returns: "NA",
+  }
+];
+
+
 
 const equityFundTypes = [
   {
@@ -154,6 +366,79 @@ const hybridFundTypes = [
   },
 ];
 
+const elssFundTypes = [
+  {
+    title: "Large-Cap ELSS Funds",
+    description:
+      "These funds invest predominantly in well-established large-cap companies for relatively stable long-term growth.",
+  },
+  {
+    title: "Mid & Small-Cap ELSS Funds",
+    description:
+      "These funds focus on mid- and small-cap companies offering higher growth potential but with greater volatility.",
+  },
+  {
+    title: "Multi-Cap ELSS Funds",
+    description:
+      "These funds diversify across large-, mid-, and small-cap stocks to balance risk and return across different market cycles.",
+  },
+  {
+    title: "Thematic ELSS Funds",
+    description:
+      "These funds concentrate investments in specific themes or sectors—like technology, healthcare, or infrastructure—to capitalize on sectoral growth trends.",
+  },
+];
+
+
+const goldFundTypes = [
+  {
+    title: "Gold Exchange Traded Funds (ETFs)",
+    description:
+      "These funds invest directly in physical gold bullion and trade on the stock exchange, offering real-time price tracking of gold.",
+  },
+  {
+    title: "Gold Fund of Funds (FoF)",
+    description:
+      "These funds invest primarily in gold ETFs, providing exposure to gold via a mutual-fund structure with end-of-day NAV pricing.",
+  },
+  {
+    title: "Gold Savings Funds",
+    description:
+      "These funds combine investments in gold ETFs with short-term debt instruments (like money market securities) to enhance liquidity and reduce volatility.",
+  },
+  {
+    title: "Sovereign Gold Bond Funds",
+    description:
+      "These funds allocate to Government of India Sovereign Gold Bonds, earning fixed interest plus gold-price appreciation without physical storage.",
+  },
+];
+
+
+const indexFundTypes = [
+  {
+    title: "Broad Market Index Funds",
+    description:
+      "These funds track major equity benchmarks like the Nifty 50 or Sensex by investing in the same proportion of stocks as the index.",
+  },
+  {
+    title: "Sectoral/Thematic Index Funds",
+    description:
+      "These funds mirror sector- or theme-specific indices (e.g., banking, technology, infrastructure) to capture targeted market trends.",
+  },
+  {
+    title: "International Index Funds",
+    description:
+      "These funds invest in overseas equity indices such as the S&P 500 or MSCI World, providing global diversification.",
+  },
+  {
+    title: "Bond Index Funds",
+    description:
+      "These funds track fixed-income indices (e.g., gilt or corporate bond indices) to deliver returns aligned with interest-rate movements.",
+  },
+];
+
+
+
 export const TypesOfMutualFundsSection = (): JSX.Element => {
   // Animation variants for staggered animations
   const containerVariants = {
@@ -170,95 +455,115 @@ export const TypesOfMutualFundsSection = (): JSX.Element => {
   const fundTypeIcons = {
     "Equity": <TrendingUp className="w-8 h-8 text-[#09ffec]" />,
     "Debt": <BarChart2 className="w-8 h-8 text-[#09ffec]" />,
-    "Hybrid": <PieChart className="w-8 h-8 text-[#09ffec]" />
+    "Hybrid": <PieChart className="w-8 h-8 text-[#09ffec]" />,
+    "Index": <BarChart2 className="w-8 h-8 text-[#09ffec]" />,
+    "ELSS": <PieChart className="w-8 h-8 text-[#09ffec]" />,
+    "Gold": <TrendingUp className="w-8 h-8 text-[#09ffec]" />,
   };
 
-  const FundCard = ({ data, fundType }: { data: typeof equityFundData, fundType: string }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="w-full md:w-[532px]"
-    >
-      <Card className="flex flex-col items-center gap-5 p-4 bg-white rounded-2xl overflow-hidden shadow-[0px_0px_30px_rgba(0,0,0,0.1)] transform transition-all duration-300 hover:shadow-[0px_0px_40px_rgba(0,0,0,0.15)] hover:-translate-y-1 border-none">
-        <CardContent className="flex flex-col w-full items-start p-0">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative w-full border-b border-gray-100 pb-4 mb-2">
-            <div className="flex items-center gap-2">
-              <div className="bg-gradient-to-r from-[#0d0c34] to-[#1a1956] p-2 rounded-lg">
-                {fundTypeIcons[fundType as keyof typeof fundTypeIcons]}
+  const FundCard = ({ data, fundType }: { data: typeof equityFundData, fundType: string }) => {
+    const [expanded, setExpanded] = useState(false);
+    
+    // Display only first 5 items when not expanded
+    const displayedData = expanded ? data : data.slice(0, 5);
+
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="w-full md:w-[532px]"
+      >
+        <Card className="flex flex-col items-center gap-5 p-4 bg-white rounded-2xl overflow-hidden shadow-[0px_0px_30px_rgba(0,0,0,0.1)] transform transition-all duration-300 hover:shadow-[0px_0px_40px_rgba(0,0,0,0.15)] hover:-translate-y-1 border-none">
+          <CardContent className="flex flex-col w-full items-start p-0">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative w-full border-b border-gray-100 pb-4 mb-2">
+              <div className="flex items-center gap-2">
+                <div className="bg-gradient-to-r from-[#0d0c34] to-[#1a1956] p-2 rounded-lg">
+                  {fundTypeIcons[fundType as keyof typeof fundTypeIcons]}
+                </div>
+                <div className="font-medium text-[#333] text-lg">
+                  Top {fundType} Mutual Funds
+                </div>
               </div>
-              <div className="font-medium text-[#333] text-lg">
-                Top {fundType} Mutual Funds
+              <div className="bg-[#f5f7ff] px-4 py-2 rounded-full text-[#0d0c34] font-medium text-sm">
+                5Y Returns (Annualized)
               </div>
             </div>
-            <div className="bg-[#f5f7ff] px-4 py-2 rounded-full text-[#0d0c34] font-medium text-sm">
-              5Y Returns (Annualized)
+
+            <div className="flex flex-col items-start w-full">
+              {displayedData.map((fund, index) => (
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col md:flex-row w-full border-b border-[#f5f7ff] hover:bg-[#f9faff] transition-colors"
+                >
+                  <div className="w-full md:w-[286px] py-4 px-3">
+                    <div className="flex items-center">
+                      <div
+                        className="w-11 h-11 rounded-full border border-solid border-[#eaeaea] bg-cover bg-center shadow-sm"
+                        style={{ backgroundImage: `url(${fund.logo})` }}
+                      />
+                      <div className="ml-3.5 font-medium text-[#222222] text-[15px] leading-5">
+                        {fund.twoLines ? (
+                          <>
+                            {fund.name.split(" ").slice(0, -1).join(" ")}
+                            <br />
+                            <span className="text-[#666]">{fund.name.split(" ").slice(-1)[0]}</span>
+                          </>
+                        ) : (
+                          fund.name
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center w-full md:w-auto">
+                    <div className="py-4 px-5 border-l border-[#f5f7ff] flex items-center justify-center">
+                      <div className="font-bold text-[#0d0c34] text-base md:text-lg text-center leading-5">
+                        {fund.returns}
+                      </div>
+                    </div>
+                    <div className="py-4 px-5 border-l border-[#f5f7ff] flex items-center justify-center">
+                      <Button
+                        className="h-[34px] rounded-full border-none bg-gradient-to-r from-[#0d0c34] to-[#1a1956] text-white hover:shadow-lg transition-all duration-300"
+                      >
+                        <span className="font-medium text-white text-sm">
+                          Invest
+                        </span>
+                      </Button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </CardContent>
 
-          <div className="flex flex-col items-start w-full">
-            {data.map((fund, index) => (
-              <motion.div 
-                key={index} 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex flex-col md:flex-row w-full border-b border-[#f5f7ff] hover:bg-[#f9faff] transition-colors"
-              >
-                <div className="w-full md:w-[286px] py-4 px-3">
-                  <div className="flex items-center">
-                    <div
-                      className="w-11 h-11 rounded-full border border-solid border-[#eaeaea] bg-cover bg-center shadow-sm"
-                      style={{ backgroundImage: `url(${fund.logo})` }}
-                    />
-                    <div className="ml-3.5 font-medium text-[#222222] text-[15px] leading-5">
-                      {fund.twoLines ? (
-                        <>
-                          {fund.name.split(" ").slice(0, -1).join(" ")}
-                          <br />
-                          <span className="text-[#666]">{fund.name.split(" ").slice(-1)[0]}</span>
-                        </>
-                      ) : (
-                        fund.name
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center w-full md:w-auto">
-                  <div className="py-4 px-5 border-l border-[#f5f7ff] flex items-center justify-center">
-                    <div className="font-bold text-[#0d0c34] text-base md:text-lg text-center leading-5">
-                      {fund.returns}
-                    </div>
-                  </div>
-                  <div className="py-4 px-5 border-l border-[#f5f7ff] flex items-center justify-center">
-                    <Button
-                      className="h-[34px] rounded-full border-none bg-gradient-to-r from-[#0d0c34] to-[#1a1956] text-white hover:shadow-lg transition-all duration-300"
-                    >
-                      <span className="font-medium text-white text-sm">
-                        Invest
-                      </span>
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </CardContent>
-
-        <motion.div 
-          className="flex items-center justify-center mt-4 cursor-pointer group"
-          whileHover={{ scale: 1.05 }}
-        >
-          <span className="font-medium text-[#0d0c34] text-sm text-center mr-2">
-            See all {fundType} Mutual Funds
-          </span>
-          <ChevronRight className="w-4 h-4 text-[#09ffec] group-hover:translate-x-1 transition-transform duration-300" />
-        </motion.div>
-      </Card>
-    </motion.div>
-  );
+          {data.length > 5 && (
+            <motion.div 
+              className="flex items-center justify-center mt-4 cursor-pointer group"
+              whileHover={{ scale: 1.05 }}
+              onClick={() => setExpanded(!expanded)}
+            >
+              <span className="font-medium text-[#0d0c34] text-sm text-center mr-2">
+                {expanded 
+                  ? `Show fewer ${fundType} Mutual Funds` 
+                  : `See all ${fundType} Mutual Funds`
+                }
+              </span>
+              {expanded ? (
+                <ChevronDown className="w-4 h-4 text-[#09ffec] group-hover:-translate-y-1 transition-transform duration-300" />
+              ) : (
+                <ChevronRight className="w-4 h-4 text-[#09ffec] group-hover:translate-x-1 transition-transform duration-300" />
+              )}
+            </motion.div>
+          )}
+        </Card>
+      </motion.div>
+    );
+  };
 
   const FundTypeSection = ({
     title,
@@ -273,18 +578,18 @@ export const TypesOfMutualFundsSection = (): JSX.Element => {
   }) => {
     const fundType = title.split(" ")[0];
     
-    // Color classes based on section position in the gradient
-    const headingColor = sectionIndex === 0 ? "text-white" : sectionIndex === 1 ? "text-gray-100" : "text-[#0d0c34]";
-    const descriptionColor = sectionIndex === 0 ? "text-gray-300" : sectionIndex === 1 ? "text-gray-200" : "text-[#444]";
-    const typesHeadingColor = sectionIndex === 0 ? "text-white" : sectionIndex === 1 ? "text-gray-200" : "text-[#0d0c34]";
-    const borderColor = sectionIndex === 0 ? "border-gray-700" : sectionIndex === 1 ? "border-gray-300" : "border-[#f5f7ff]";
+    // Using consistent styling for all sections (using the styles from sectionIndex 0)
+    const headingColor = "text-white";
+    const descriptionColor = "text-gray-300";
+    const typesHeadingColor = "text-white";
+    const borderColor = "border-gray-700";
     
-    // Card colors
-    const cardBg = sectionIndex === 0 ? "bg-[#131740]" : "bg-white";
-    const cardText = sectionIndex === 0 ? "text-white" : "text-[#0d0c34]";
-    const cardDesc = sectionIndex === 0 ? "text-gray-300" : "text-[#666]";
-    const cardBorder = sectionIndex === 0 ? "border-gray-700" : "border-gray-100";
-    const cardHover = sectionIndex === 0 ? "hover:bg-[#1c2254]" : "hover:bg-[#f9faff]";
+    // Card colors - using the same styling for all cards
+    const cardBg = "bg-[#131740]";
+    const cardText = "text-white";
+    const cardDesc = "text-gray-300";
+    const cardBorder = "border-gray-700";
+    const cardHover = "hover:bg-[#1c2254]";
     
     return (
       <motion.div 
@@ -341,7 +646,7 @@ export const TypesOfMutualFundsSection = (): JSX.Element => {
   };
 
   return (
-    <section className="w-full bg-gradient-to-b from-[#0D0C34] to-[#fdfffc] py-16 md:py-24 px-4 md:px-8 overflow-hidden">
+    <section className="w-full bg-[#0D0C34] py-16 md:py-24 px-4 md:px-8 overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -401,7 +706,7 @@ export const TypesOfMutualFundsSection = (): JSX.Element => {
                   </>
                 }
                 types={debtFundTypes}
-                sectionIndex={1}
+                sectionIndex={0}
               />
               <FundCard data={debtFundData} fundType="Debt" />
             </div>
@@ -422,7 +727,7 @@ export const TypesOfMutualFundsSection = (): JSX.Element => {
                       href="https://www.etmoney.com/mutual-funds/hybrid"
                       rel="noopener noreferrer"
                       target="_blank"
-                      className="text-[#0d0c34] font-medium underline hover:text-[#0d0c34] transition-colors"
+                      className="text-[#09ffec] font-medium underline hover:text-[#09ffec]/80 transition-colors"
                     >
                       hybrid funds
                     </a>{" "}
@@ -431,10 +736,65 @@ export const TypesOfMutualFundsSection = (): JSX.Element => {
                   </>
                 }
                 types={hybridFundTypes}
-                sectionIndex={2}
+                sectionIndex={0}
               />
               <FundCard data={hybridFundData} fundType="Hybrid" />
             </div>
+          </div>
+
+          {/* Fourth section - Index */}
+          <div className="relative">
+            <div className="flex flex-col lg:flex-row-reverse items-start gap-12 md:gap-[95px]">
+              <FundTypeSection
+                title="Index Mutual Funds"
+                description={
+                  <>
+                    <span className="text-[#09ffec] font-medium">Index mutual funds</span> are passively managed portfolios designed to replicate the performance of a specific market benchmark—such as the Nifty 50, Sensex, S&P 500, or a bond index—by holding the same securities in the same proportions. 
+                  </>
+                }
+                types={indexFundTypes}
+                sectionIndex={0}
+              />
+              <FundCard data={indexFundData} fundType="Index" />
+            </div>
+            {/* Decorative line */}
+            <div className="absolute bottom-[-14rem] lg:bottom-[-5rem] left-1/2 transform -translate-x-1/2 w-[1px] h-[8rem] bg-gradient-to-b from-[#09ffec]/50 to-transparent"></div>
+          </div>
+
+          {/* Fifth section - ELSS */}
+          <div className="relative">
+            <div className="flex flex-col lg:flex-row items-start gap-12 md:gap-[95px]">
+              <FundTypeSection
+                title="ELSS Mutual Funds"
+                description={
+                  <>
+                    Equity-Linked Savings Schemes (ELSS) are diversified equity mutual funds that come with a mandatory three-year lock-in period. They offer the potential for higher long-term capital appreciation compared to pure debt or hybrid funds.
+                  </>
+                }
+                types={elssFundTypes}
+                sectionIndex={0}
+              />
+              <FundCard data={elssFundData} fundType="ELSS" />
+            </div>
+          </div>
+
+          {/* Sixth section - Gold */}
+          <div className="relative">
+            <div className="flex flex-col lg:flex-row-reverse items-start gap-12 md:gap-[95px]">
+              <FundTypeSection
+                title="Gold Mutual Funds"
+                description={
+                  <>
+                    <span className="text-[#09ffec] font-medium">Gold mutual funds</span> invest primarily in instruments that track the price of gold—such as gold ETFs, sovereign gold bonds, or gold-related securities—without the need to physically buy, store, or insure bullion.
+                  </>
+                }
+                types={goldFundTypes}
+                sectionIndex={0}
+              />
+              <FundCard data={goldFundData} fundType="Gold" />
+            </div>
+            {/* Decorative line */}
+            <div className="absolute bottom-[-14rem] lg:bottom-[-5rem] left-1/2 transform -translate-x-1/2 w-[1px] h-[8rem] bg-gradient-to-b from-[#09ffec]/50 to-transparent"></div>
           </div>
         </motion.div>
         
