@@ -84,7 +84,7 @@ function NavbarWithoutAnimation() {
     }, []);
 
     return (
-        <nav className="px-6 py-4 flex items-center justify-between relative bg-[#0D0C34] z-50">
+        <nav className="px-6 py-4 flex items-center justify-between relative bg-[#0D0C34] z-50 text-white">
             <div className="flex items-center space-x-2">
                 <BarChart2 className="w-8 h-8" />
                 <span className="text-2xl font-bold"><Link to="/" className="hover:text-[#0AFFFF] transition-colors">NexVest</Link></span>
@@ -95,6 +95,8 @@ function NavbarWithoutAnimation() {
             <Link to="/" className="hover:text-[#0AFFFF] transition-colors">Home</Link>
 
                 <Link to="/mutual-funds" className="hover:text-[#0AFFFF] transition-colors">Mutual Funds</Link>
+
+                <Link to="/personality-test" className="hover:text-[#0AFFFF] transition-colors">Personality Test</Link>
 
                 {/* Products Dropdown */}
                 <div className="relative">
@@ -193,6 +195,7 @@ function NavbarWithoutAnimation() {
                                 <div className="px-6 py-8 flex flex-col space-y-6 flex-grow">
                                     <Link to="/" className="text-lg hover:text-yellow-400 transition-colors">Home</Link>
                                     <Link to="/mutual-funds" className="text-lg hover:text-yellow-400 transition-colors">Mutual Funds</Link>
+                                    <Link to="/personality-test" className="text-lg hover:text-yellow-400 transition-colors">Personality Test</Link>
                                     <div className="space-y-4">
                                         <p className="text-lg font-semibold">Products</p>
                                         <div className="pl-4 flex flex-col space-y-3">

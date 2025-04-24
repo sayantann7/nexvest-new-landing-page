@@ -100,6 +100,8 @@ function Navbar() {
 
                 <Link to="/mutual-funds" className="hover:text-[#0AFFFF] transition-colors">Mutual Funds</Link>
 
+                <Link to="/personality-test" className="hover:text-[#0AFFFF] transition-colors">Personality Test</Link>
+
                 {/* Products Dropdown */}
                 <div className="relative">
                     <button
@@ -197,6 +199,7 @@ function Navbar() {
                                 <div className="px-6 py-8 flex flex-col space-y-6 flex-grow">
                                     <Link to="/" className="text-lg hover:text-yellow-400 transition-colors">Home</Link>
                                     <Link to="/mutual-funds" className="text-lg hover:text-yellow-400 transition-colors">Mutual Funds</Link>
+                                    <Link to="/personality-test" className="text-lg hover:text-yellow-400 transition-colors">Personality Test</Link>
                                     <div className="space-y-4">
                                         <p className="text-lg font-semibold">Products</p>
                                         <div className="pl-4 flex flex-col space-y-3">

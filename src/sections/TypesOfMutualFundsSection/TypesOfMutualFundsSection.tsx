@@ -8,77 +8,77 @@ const equityFundData = [
   {
     name: "Quant Small Cap Fund",
     logo: "/mutualFund/quant.png",
-    returns: "+25.62% p.a.",
+    returns: "+25.62%",
   },
   {
     name: "Nippon India Small Cap Fund",
     logo: "/mutualFund/nippon.png",
-    returns: "+24.22% p.a.",
+    returns: "+24.22%",
   },
   {
     name: "Quant Infrastructure Fund",
     logo: "/mutualFund/quant.png",
-    returns: "+24.06% p.a.",
+    returns: "+24.06%",
   },
-  { name: "Quant ELSS Tax Saver Fund", logo: "/mutualFund/quant.png", returns: "+23.08% p.a." },
+  { name: "Quant ELSS Tax Saver Fund", logo: "/mutualFund/quant.png", returns: "+23.08%" },
   {
     name: "Motilal Oswal Midcap Fund",
     logo: "/mutualFund/motilal.svg",
-    returns: "+22.86% p.a.",
+    returns: "+22.86%",
   },
-  { name: "Quant Mid Cap Fund", logo: "/mutualFund/quant.png", returns: "+22.82% p.a." },
-  { name: "Quant Flexi Cap Fund", logo: "/mutualFund/quant.png", returns: "+22.55% p.a." },
+  { name: "Quant Mid Cap Fund", logo: "/mutualFund/quant.png", returns: "+22.82%" },
+  { name: "Quant Flexi Cap Fund", logo: "/mutualFund/quant.png", returns: "+22.55%" },
   { name: "Edelweiss Mid Cap Fund", logo: "/mutualFund/edelweiss.png", returns: "(+22.47% p.a." },
-  { name: "ICICI Prudential Infrastructure Fund", logo: "/mutualFund/icici.jpg", returns: "+22.38% p.a." },
-  { name: "Invesco India Infrastructure Fund", logo: "/mutualFund/invesco.png", returns: "+22.23% p.a." },
+  { name: "ICICI Prudential Infrastructure Fund", logo: "/mutualFund/icici.jpg", returns: "+22.38%" },
+  { name: "Invesco India Infrastructure Fund", logo: "/mutualFund/invesco.png", returns: "+22.23%" },
 ];
 
 const debtFundData = [
   {
     name: "Aditya Birla Sun Life Medium Term Fund",
     logo: "/mutualFund/adityabirla.png",
-    returns: "+10.36% p.a.",
+    returns: "+10.36%",
   },
   {
     name: "Aditya Birla Sun Life Credit Risk Fund",
     logo: "/mutualFund/adityabirla.png",
-    returns: "+9.47% p.a.",
+    returns: "+9.47%",
   },
   {
     name: "DSP Gilt Fund",
     logo: "/mutualFund/dsp.png",
-    returns: "+8.76% p.a.",
+    returns: "+8.76%",
   },
-  { name: "Baroda BNP Paribas Credit Risk Fund", logo: "mutualFund/baroda.png", returns: "+8.68% p.a." },
+  { name: "Baroda BNP Paribas Credit Risk Fund", logo: "mutualFund/baroda.png", returns: "+8.68%" },
   {
     name: "ICICI Prudential All Seasons Bond Fund",
     logo: "/mutualFund/icici.jpg",
-    returns: "+8.66% p.a.",
+    returns: "+8.66%",
   },
   {
     name: "SBI Magnum Gilt Fund",
     logo: "/mutualFund/sbi.jpg",
-    returns: "+8.66% p.a.",
+    returns: "+8.66%",
   },
   {
     name: "Bandhan GSF Investment Fund",
     logo: "/mutualFund/bandhan.jpg",
-    returns: "+8.62% p.a.",
+    returns: "+8.62%",
   },
   {
     name: "Edelweiss Government Securities Fund",
     logo: "/mutualFund/edelweiss.png",
-    returns: "+8.55% p.a.",
+    returns: "+8.55%",
   },
   {
     name: "ICICI Prudential Gilt Fund",
     logo: "/mutualFund/icici.jpg",
-    returns: "+8.53% p.a.",
+    returns: "+8.53%",
   },
   {
     name: "Kotak Gilt Investment Fund",
     logo: "/mutualFund/kotak.png",
-    returns: "+8.52% p.a.",
+    returns: "+8.52%",
   },
 ];
 
@@ -86,52 +86,52 @@ const hybridFundData = [
   {
     name: "Quant Multi Asset Fund",
     logo: "/mutualFund/quant.png",
-    returns: "+21.23% p.a.",
+    returns: "+21.23%",
   },
   {
     name: "ICICI Prudential Equity & Debt Fund",
     logo: "/mutualFund/icici.jpg",
-    returns: "+18.81% p.a.",
+    returns: "+18.81%",
   },
   {
     name: "Quant Absolute Fund",
     logo: "/mutualFund/quant.png",
-    returns: "+18.51% p.a.",
+    returns: "+18.51%",
   },
   {
     name: "ICICI Prudential Multi Asset Fund",
     logo: "/mutualFund/icici.jpg",
-    returns: "+18.38% p.a.",
+    returns: "+18.38%",
   },
   {
     name: "HDFC Balanced Advantage Fund",
     logo: "/mutualFund/hdfc.png",
-    returns: "+17.65% p.a.",
+    returns: "+17.65%",
   },
   {
     name: "Kotak Multi Asset Allocator FoF - Dynamic",
     logo: "/mutualFund/kotak.png",
-    returns: "+17.32% p.a.",
+    returns: "+17.32%",
   },
   {
     name: "JM Aggressive Hybrid Fund",
     logo: "/mutualFund/jm.png",
-    returns: "+17.02% p.a.",
+    returns: "+17.02%",
   },
   {
     name: "Edelweiss Aggressive Hybrid Fund",
     logo: "/mutualFund/edelweiss.png",
-    returns: "+16.61% p.a.",
+    returns: "+16.61%",
   },
   {
     name: "Kotak Equity Hybrid Fund",
     logo: "/mutualFund/kotak.png",
-    returns: "+15.80% p.a.",
+    returns: "+15.80%",
   },
   {
     name: "DSP Aggressive Hybrid Fund",
     logo: "/mutualFund/dsp.png",
-    returns: "+15.53% p.a.",
+    returns: "+15.53%",
   }
 ];
 
@@ -139,52 +139,52 @@ const elssFundData = [
   {
     name: "Kotak ELSS Tax Saver Fund",
     logo: "/mutualFund/kotak.png",
-    returns: "+17.36% p.a.",
+    returns: "+17.36%",
   },
   {
     name: "Canara Robeco ELSS Tax Saver",
     logo: "/mutualFund/canara.png",
-    returns: "+17.36% p.a.",
+    returns: "+17.36%",
   },
   {
     name: "Franklin India ELSS Tax Saver Fund",
     logo: "/mutualFund/frankling.png",
-    returns: "+17.02% p.a.",
+    returns: "+17.02%",
   },
   {
     name: "Invesco India ELSS Tax Saver Fund",
     logo: "/mutualFund/invesco.png",
-    returns: "+16.50% p.a.",
+    returns: "+16.50%",
   },
   {
     name: "Tata ELSS Tax Saver Fund",
     logo: "/mutualFund/tata.png",
-    returns: "+16.44% p.a.",
+    returns: "+16.44%",
   },
   {
     name: "ICICI Prudential ELSS Tax Saver",
     logo: "/mutualFund/icici.jpg",
-    returns: "+16.13% p.a.",
+    returns: "+16.13%",
   },
   {
     name: "HSBC ELSS Tax Saver Fund",
     logo: "/mutualFund/hsbc.png",
-    returns: "+15.87% p.a.",
+    returns: "+15.87%",
   },
   {
     name: "Baroda BNP Paribas ELSS Tax Saver Fund",
     logo: "/mutualFund/baroda.png",
-    returns: "+15.86% p.a.",
+    returns: "+15.86%",
   },
   {
     name: "Union ELSS Tax Saver Fund",
     logo: "/mutualFund/union.png",
-    returns: "+15.63% p.a.",
+    returns: "+15.63%",
   },
   {
     name: "Edelweiss ELSS Tax Saver Fund",
     logo: "/mutualFund/edelweiss.png",
-    returns: "+15.49% p.a.",
+    returns: "+15.49%",
   },
 ];
 
@@ -192,52 +192,52 @@ const indexFundData = [
   {
     name: "ICICI Prudential Nifty Next 50 Index Fund",
     logo: "/mutualFund/icici.jpg",
-    returns: "+15.17% p.a.",
+    returns: "+15.17%",
   },
   {
     name: "Sundaram Nifty 100 Equal Weight Fund",
     logo: "/mutualFund/sundaram.png",
-    returns: "+14.69% p.a.",
+    returns: "+14.69%",
   },
   {
     name: "Bandhan Nifty 50 Index Fund",
     logo: "/mutualFund/bandhan.jpg",
-    returns: "+14.42% p.a.",
+    returns: "+14.42%",
   },
   {
     name: "UTI Nifty 50 Index Fund",
     logo: "/mutualFund/uti.png",
-    returns: "+14.34% p.a.",
+    returns: "+14.34%",
   },
   {
     name: "HDFC Nifty 50 Index Fund",
     logo: "/mutualFund/hdfc.png",
-    returns: "+14.28% p.a.",
+    returns: "+14.28%",
   },
   {
     name: "Tata Nifty 50 Index Fund",
     logo: "/mutualFund/tata.png",
-    returns: "+14.25% p.a.",
+    returns: "+14.25%",
   },
   {
     name: "Nippon India Index Nifty 50",
     logo: "/mutualFund/nippon.png",
-    returns: "+14.24% p.a.",
+    returns: "+14.24%",
   },
   {
     name: "ICICI Prudential Nifty 50 Index Fund",
     logo: "/mutualFund/icici.jpg",
-    returns: "+14.23% p.a.",
+    returns: "+14.23%",
   },
   {
     name: "SBI Nifty Index Fund",
     logo: "/mutualFund/sbi.jpg",
-    returns: "+14.21% p.a.",
+    returns: "+14.21%",
   },
   {
     name: "HDFC BSE Sensex Index Fund",
     logo: "/mutualFund/hdfc.png",
-    returns: "+14.19% p.a.",
+    returns: "+14.19%",
   },
 ];
 
@@ -246,7 +246,7 @@ const goldFundData = [
   {
     name: "Nippon India Gold Savings Fund",
     logo: "/mutualFund/nippon.png",
-    returns: "+15.82% p.a.",
+    returns: "+15.82%",
   },
   {
     name: "Zerodha Gold ETF FoF",
@@ -522,7 +522,7 @@ export const TypesOfMutualFundsSection = (): JSX.Element => {
                   </div>
                   <div className="flex justify-between items-center w-full md:w-auto">
                     <div className="py-4 px-5 border-l border-[#f5f7ff] flex items-center justify-center">
-                      <div className="font-bold text-[#0d0c34] text-base md:text-lg text-center leading-5">
+                      <div className="font-bold text-[#0d0c34] text-base md:text-lg text-center">
                         {fund.returns}
                       </div>
                     </div>
