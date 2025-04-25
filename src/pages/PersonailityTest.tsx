@@ -492,7 +492,7 @@ function PersonalityTest() {
                                 ].map((feature, index) => (
                                     <motion.div
                                         key={index}
-                                        className="bg-white p-6 rounded-xl border border-blue-100"
+                                        className="bg-[#1E3A8A] p-6 rounded-xl border border-blue-100"
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -501,8 +501,8 @@ function PersonalityTest() {
                                         <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-50 mb-4">
                                             {feature.icon}
                                         </div>
-                                        <h3 className="text-xl font-semibold mb-2 text-blue-900">{feature.title}</h3>
-                                        <p className="text-blue-900 font-medium text-sm">{feature.description}</p>
+                                        <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
+                                        <p className="text-white font-medium text-sm">{feature.description}</p>
                                     </motion.div>
                                 ))}
                             </div>
@@ -655,14 +655,14 @@ function PersonalityTest() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.7 }}
                                     viewport={{ once: true }}
-                                    className="bg-white border border-blue-100 rounded-xl p-8 text-center shadow-md"
+                                    className="bg-[#1E3A8A] border border-blue-100 rounded-xl p-8 text-center shadow-md"
                                 >
-                                    <p className="text-lg text-blue-900 font-medium mb-6">
+                                    <p className="text-lg text-white font-medium mb-6">
                                         Complete the personality test to see your detailed investment profile and personalized recommendations.
                                     </p>
                                     <Button
                                         onClick={() => scrollToSection(testSectionRef)}
-                                        className="bg-[#1E3A8A] hover:bg-[#15296B] text-white font-medium"
+                                        className="bg-white hover:bg-[#15296B] text-[#1E3A8A] font-medium"
                                     >
                                         Take the Test
                                     </Button>
