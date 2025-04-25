@@ -117,35 +117,34 @@ function PersonalityTest() {
         }
     ];
 
-    // Possible results based on score
     const results: Result[] = [
         {
             title: "Conservative Investor",
             description: "You prioritize capital preservation over growth. You're uncomfortable with market volatility and prefer safer investments.",
             investmentType: "Fixed deposits, government bonds, debt mutual funds",
             riskLevel: "Low",
-            color: "#36A2EB"
+            color: "#1E3A8A" // Dark blue for conservative
         },
         {
             title: "Moderate Investor",
             description: "You seek a balance between growth and safety. You can tolerate some market fluctuations for better returns.",
             investmentType: "Balanced mutual funds, blue-chip stocks, corporate bonds",
             riskLevel: "Medium",
-            color: "#0AFFFF"
+            color: "#2563EB" // Medium blue for moderate
         },
         {
             title: "Growth Investor",
             description: "You're focused on long-term growth and can handle significant market volatility for potentially higher returns.",
             investmentType: "Growth stocks, equity mutual funds, some international exposure",
             riskLevel: "Medium-High",
-            color: "#00a651"
+            color: "#0369A1" // Blue-teal for growth
         },
         {
             title: "Aggressive Investor",
             description: "You're seeking maximum returns and are comfortable with high volatility and risk. You have a long investment horizon.",
             investmentType: "Small-cap stocks, aggressive growth funds, alternative investments",
             riskLevel: "High",
-            color: "#09ffec"
+            color: "#0891B2" // Teal for aggressive
         }
     ];
 
@@ -245,7 +244,7 @@ function PersonalityTest() {
                     : investingFacts[Math.floor(Math.random() * investingFacts.length)];
 
                 bubble.className = `absolute rounded-full flex items-center justify-center text-center p-6 
-                          ${isMyth ? 'bg-[#FF6B6B]/80' : 'bg-[#0AFFFF]/80'} text-white text-sm font-medium
+                          ${isMyth ? 'bg-[#FF6B6B]/80' : 'bg-[#1E3A8A]/80'} text-white text-sm font-medium
                           shadow-lg`;
 
                 // Random size between 100px and 200px
@@ -329,7 +328,7 @@ function PersonalityTest() {
         <>
             <NavbarWithoutAnimation />
 
-            <main className="min-h-screen bg-gradient-to-b from-[#0D0C34] to-[#131740] text-white">
+            <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-blue-900">
                 {/* Hero Section */}
                 <section
                     className="relative w-full min-h-[500px] md:h-[651px] flex items-center overflow-hidden"
@@ -350,45 +349,43 @@ function PersonalityTest() {
                             className="w-full h-full object-cover"
                         />
                     </video>
-                    {/* Darker overlay for entire video */}
-                    <div className="absolute inset-0 bg-black/30 z-[1]"></div>
+                    {/* Lighter overlay for entire video */}
+                    <div className="absolute inset-0 bg-white/70 z-[1]"></div>
 
                     {/* Gradient fade overlay - creates smooth transition from navbar */}
                     <div
                         className="absolute top-0 left-0 right-0 h-32 z-[2]"
                         style={{
-                            background: 'linear-gradient(to bottom, #0D0C34 0%, rgba(13, 12, 52, 0) 100%)'
+                            background: 'linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 100%)'
                         }}
                     ></div>
-
 
                     {/* Bottom gradient fade overlay - creates smooth transition to next section */}
                     <div
                         className="absolute bottom-0 left-0 right-0 h-32 z-[2]"
                         style={{
-                            background: 'linear-gradient(to top, #0D0C34 0%, rgba(13, 12, 52, 0) 100%)'
+                            background: 'linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 100%)'
                         }}
                     ></div>
-
 
                     <div className="container mx-auto px-4 relative z-10">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                             {/* Hero Text */}
                             <motion.div
-                                className="md:w-1/2 text-white"
+                                className="md:w-1/2 text-blue-900"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7 }}
                             >
-                                <h1 className="text-4xl md:text-6xl font-bold mb-6">Discover Your <span className="text-[#0AFFFF]">Investment</span> Personality</h1>
-                                <p className="text-xl mb-8 max-w-lg">
+                                <h1 className="text-4xl md:text-6xl font-bold mb-6">Discover Your <span className="text-[#1E3A8A]">Investment</span> Personality</h1>
+                                <p className="text-xl mb-8 max-w-lg text-blue-900 font-medium">
                                     Understand your risk tolerance, financial knowledge, and investment mindset to receive
                                     personalized investment recommendations tailored to your unique profile.
                                 </p>
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-[#0AFFFF] hover:bg-[#09ffec] text-[#0D0C34] font-bold py-4 px-8 rounded-full flex items-center"
+                                    className="bg-[#1E3A8A] hover:bg-[#15296B] text-white font-bold py-4 px-8 rounded-full flex items-center"
                                     onClick={() => scrollToSection(testSectionRef)}
                                 >
                                     <span>Get Started With The Test</span>
@@ -403,9 +400,9 @@ function PersonalityTest() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7, delay: 0.3 }}
                             >
-                                <Card className="bg-[#0D0C34]/80 backdrop-blur-sm border border-[#0AFFFF]/30 rounded-2xl shadow-glow-effect overflow-hidden">
+                                <Card className="bg-white/80 backdrop-blur-sm border border-blue-200 rounded-2xl shadow-lg overflow-hidden">
                                     <CardContent className="p-8">
-                                        <h3 className="text-2xl font-bold mb-4">Why Take Our Personality Test?</h3>
+                                        <h3 className="text-2xl font-bold mb-4 text-blue-900">Why Take Our Personality Test?</h3>
 
                                         <ul className="space-y-4">
                                             {[
@@ -417,20 +414,20 @@ function PersonalityTest() {
                                             ].map((item, index) => (
                                                 <motion.li
                                                     key={index}
-                                                    className="flex items-start"
+                                                    className="flex items-start text-blue-900"
                                                     initial={{ opacity: 0, x: -10 }}
                                                     animate={{ opacity: 1, x: 0 }}
                                                     transition={{ delay: 0.5 + (index * 0.1) }}
                                                 >
-                                                    <div className="mr-3 rounded-full bg-[#0AFFFF]/20 p-1">
-                                                        <Check className="w-4 h-4 text-[#0AFFFF]" />
+                                                    <div className="mr-3 rounded-full bg-[#1E3A8A]/20 p-1">
+                                                        <Check className="w-4 h-4 text-[#1E3A8A]" />
                                                     </div>
-                                                    <span>{item}</span>
+                                                    <span className="font-medium">{item}</span>
                                                 </motion.li>
                                             ))}
                                         </ul>
 
-                                        <p className="mt-6 text-sm text-gray-300">
+                                        <p className="mt-6 text-sm text-blue-900 font-medium">
                                             The test takes approximately 5 minutes to complete. Your results will help
                                             NexVest suggest investments that match your personal financial profile.
                                         </p>
@@ -463,11 +460,11 @@ function PersonalityTest() {
                                 transition={{ duration: 0.7 }}
                                 viewport={{ once: true }}
                             >
-                                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-[#0AFFFF]/20 mb-6">
-                                    <Brain className="w-8 h-8 text-[#0AFFFF]" />
+                                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-[#1E3A8A]/20 mb-6">
+                                    <Brain className="w-8 h-8 text-[#1E3A8A]" />
                                 </div>
-                                <h2 className="text-3xl md:text-5xl font-bold mb-4">Investment Personality Test</h2>
-                                <p className="text-gray-300 max-w-2xl mb-8">
+                                <h2 className="text-3xl md:text-5xl font-bold mb-4 text-blue-900">Investment Personality Test</h2>
+                                <p className="text-blue-900 font-medium max-w-2xl mb-8">
                                     Your answers to these carefully designed questions will help us understand your approach
                                     to investing. We'll analyze your risk tolerance, knowledge level, and investment
                                     preferences to create a personalized profile.
@@ -478,45 +475,45 @@ function PersonalityTest() {
                             <div className="grid md:grid-cols-3 gap-6 mb-12">
                                 {[
                                     {
-                                        icon: <BarChart3 className="w-6 h-6 text-[#0AFFFF]" />,
+                                        icon: <BarChart3 className="w-6 h-6 text-[#1E3A8A]" />,
                                         title: "5 Simple Questions",
                                         description: "Quick assessment that takes just minutes to complete"
                                     },
                                     {
-                                        icon: <AreaChart className="w-6 h-6 text-[#0AFFFF]" />,
+                                        icon: <AreaChart className="w-6 h-6 text-[#1E3A8A]" />,
                                         title: "Scientific Analysis",
                                         description: "Evaluates multiple factors including risk tolerance & knowledge"
                                     },
                                     {
-                                        icon: <LineChart className="w-6 h-6 text-[#0AFFFF]" />,
+                                        icon: <LineChart className="w-6 h-6 text-[#1E3A8A]" />,
                                         title: "Personalized Results",
                                         description: "Get tailored investment recommendations based on your profile"
                                     }
                                 ].map((feature, index) => (
                                     <motion.div
                                         key={index}
-                                        className="bg-[#131740]/70 p-6 rounded-xl border border-gray-700"
+                                        className="bg-white p-6 rounded-xl border border-blue-100"
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.5, delay: index * 0.1 }}
                                         viewport={{ once: true }}
                                     >
-                                        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#0D0C34] mb-4">
+                                        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-50 mb-4">
                                             {feature.icon}
                                         </div>
-                                        <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                                        <p className="text-gray-300 text-sm">{feature.description}</p>
+                                        <h3 className="text-xl font-semibold mb-2 text-blue-900">{feature.title}</h3>
+                                        <p className="text-blue-900 font-medium text-sm">{feature.description}</p>
                                     </motion.div>
                                 ))}
                             </div>
 
                             {isTestStarted ? (
                                 // Test Questions
-                                <Card className="bg-[#131740] border border-gray-700 rounded-xl">
+                                <Card className="bg-white border border-blue-100 rounded-xl shadow-md">
                                     <CardContent className="p-8">
                                         <div className="mb-8">
-                                            <h3 className="text-xl font-semibold mb-4">Question {currentQuestionIndex + 1} of {questions.length}</h3>
-                                            <Progress value={progress} className="w-full h-2 bg-gray-700" indicatorColor="bg-[#0AFFFF]" />
+                                            <h3 className="text-xl font-semibold mb-4 text-blue-900">Question {currentQuestionIndex + 1} of {questions.length}</h3>
+                                            <Progress value={progress} className="w-full h-2 bg-gray-100" indicatorColor="bg-[#1E3A8A]" />
                                         </div>
 
                                         <motion.div
@@ -526,7 +523,7 @@ function PersonalityTest() {
                                             exit={{ opacity: 0, y: -10 }}
                                             transition={{ duration: 0.4 }}
                                         >
-                                            <h3 className="text-2xl font-bold mb-6">
+                                            <h3 className="text-2xl font-bold mb-6 text-blue-900">
                                                 {questions[currentQuestionIndex].question}
                                             </h3>
 
@@ -534,13 +531,13 @@ function PersonalityTest() {
                                                 {questions[currentQuestionIndex].options.map((option, idx) => (
                                                     <motion.button
                                                         key={idx}
-                                                        className="w-full text-left p-4 rounded-lg border border-gray-700 hover:border-[#0AFFFF] hover:bg-[#0D0C34] transition-all flex justify-between items-center"
+                                                        className="w-full text-left p-4 rounded-lg border border-blue-100 hover:border-[#1E3A8A] hover:bg-blue-50 transition-all flex justify-between items-center text-blue-900 font-medium"
                                                         onClick={() => handleAnswer(option.value)}
                                                         whileHover={{ scale: 1.02 }}
                                                         whileTap={{ scale: 0.98 }}
                                                     >
                                                         <span>{option.text}</span>
-                                                        <ChevronRight className="w-5 h-5 text-gray-400" />
+                                                        <ChevronRight className="w-5 h-5 text-blue-700" />
                                                     </motion.button>
                                                 ))}
                                             </div>
@@ -558,7 +555,7 @@ function PersonalityTest() {
                                 >
                                     <Button
                                         onClick={startTest}
-                                        className="bg-[#0AFFFF] hover:bg-[#09ffec] text-[#0D0C34] text-lg font-bold py-6 px-8 rounded-full flex items-center"
+                                        className="bg-[#1E3A8A] hover:bg-[#15296B] text-white text-lg font-bold py-6 px-8 rounded-full flex items-center"
                                         size="lg"
                                     >
                                         Start The Test Now
@@ -573,7 +570,7 @@ function PersonalityTest() {
                 {/* Results Section */}
                 <section
                     ref={resultsSectionRef}
-                    className="py-16 md:py-24 bg-[#0a0b26]"
+                    className="py-16 md:py-24 bg-gray-50"
                 >
                     <div className="container mx-auto px-4">
                         <div className="max-w-3xl mx-auto">
@@ -584,11 +581,11 @@ function PersonalityTest() {
                                 transition={{ duration: 0.7 }}
                                 viewport={{ once: true }}
                             >
-                                <div className="bg-[#0AFFFF]/20 p-2 rounded-full mb-4">
-                                    <AreaChart className="w-8 h-8 text-[#0AFFFF]" />
+                                <div className="bg-[#1E3A8A]/20 p-2 rounded-full mb-4">
+                                    <AreaChart className="w-8 h-8 text-[#1E3A8A]" />
                                 </div>
-                                <h2 className="text-3xl md:text-5xl font-bold mb-4">Your Investment Profile</h2>
-                                <p className="text-gray-300 max-w-2xl">
+                                <h2 className="text-3xl md:text-5xl font-bold mb-4 text-blue-900">Your Investment Profile</h2>
+                                <p className="text-blue-900 font-medium max-w-2xl">
                                     After completing the test, you'll receive a detailed analysis of your investment personality,
                                     including recommended investment types and strategies tailored to your profile.
                                 </p>
@@ -601,25 +598,25 @@ function PersonalityTest() {
                                     transition={{ duration: 0.5 }}
                                 >
                                     <div className="text-center mb-8">
-                                        <span className="inline-block bg-[#0AFFFF] text-[#0D0C34] font-bold px-4 py-1 rounded-full text-sm mb-4">
+                                        <span className="inline-block bg-[#1E3A8A] text-white font-bold px-4 py-1 rounded-full text-sm mb-4">
                                             Your Results
                                         </span>
-                                        <h2 className="text-3xl md:text-5xl font-bold mb-2">You are a <span style={{ color: result.color }}>{result.title}</span></h2>
-                                        <p className="text-gray-300">{result.description}</p>
+                                        <h2 className="text-3xl md:text-5xl font-bold mb-2 text-blue-900">You are a <span style={{ color: result.color }}>{result.title}</span></h2>
+                                        <p className="text-blue-900 font-medium">{result.description}</p>
                                     </div>
 
-                                    <Card className="bg-[#131740] border border-gray-700 rounded-xl mb-8">
+                                    <Card className="bg-white border border-blue-100 rounded-xl mb-8 shadow-md">
                                         <CardContent className="p-8">
                                             <div className="grid md:grid-cols-2 gap-6">
                                                 <div className="space-y-4">
-                                                    <h3 className="text-xl font-semibold">Recommended Investment Types</h3>
-                                                    <p className="text-gray-300">{result.investmentType}</p>
+                                                    <h3 className="text-xl font-semibold text-blue-900">Recommended Investment Types</h3>
+                                                    <p className="text-blue-900 font-medium">{result.investmentType}</p>
                                                 </div>
 
                                                 <div className="space-y-4">
-                                                    <h3 className="text-xl font-semibold">Your Risk Tolerance</h3>
+                                                    <h3 className="text-xl font-semibold text-blue-900">Your Risk Tolerance</h3>
                                                     <div className="flex items-center">
-                                                        <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="w-full bg-gray-100 rounded-full h-4">
                                                             <div
                                                                 className="h-4 rounded-full"
                                                                 style={{
@@ -630,7 +627,7 @@ function PersonalityTest() {
                                                                 }}
                                                             ></div>
                                                         </div>
-                                                        <span className="ml-3">{result.riskLevel}</span>
+                                                        <span className="ml-3 text-blue-900 font-semibold">{result.riskLevel}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -640,13 +637,13 @@ function PersonalityTest() {
                                     <div className="flex flex-col md:flex-row gap-4 justify-center">
                                         <Button
                                             onClick={resetTest}
-                                            className="bg-transparent border border-white hover:bg-white hover:text-[#0D0C34]"
+                                            className="bg-transparent border border-blue-800 text-blue-900 hover:bg-blue-800 hover:text-white font-medium"
                                         >
                                             Retake Test
                                         </Button>
                                         <Button
                                             onClick={() => scrollToSection(educationSectionRef)}
-                                            className="bg-[#0AFFFF] hover:bg-[#09ffec] text-[#0D0C34]"
+                                            className="bg-[#1E3A8A] hover:bg-[#15296B] text-white font-medium"
                                         >
                                             Continue to Education
                                         </Button>
@@ -658,14 +655,14 @@ function PersonalityTest() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.7 }}
                                     viewport={{ once: true }}
-                                    className="bg-[#131740]/50 border border-gray-700 rounded-xl p-8 text-center"
+                                    className="bg-white border border-blue-100 rounded-xl p-8 text-center shadow-md"
                                 >
-                                    <p className="text-lg text-gray-300 mb-6">
+                                    <p className="text-lg text-blue-900 font-medium mb-6">
                                         Complete the personality test to see your detailed investment profile and personalized recommendations.
                                     </p>
                                     <Button
                                         onClick={() => scrollToSection(testSectionRef)}
-                                        className="bg-[#0AFFFF] hover:bg-[#09ffec] text-[#0D0C34]"
+                                        className="bg-[#1E3A8A] hover:bg-[#15296B] text-white font-medium"
                                     >
                                         Take the Test
                                     </Button>
@@ -678,7 +675,7 @@ function PersonalityTest() {
                 {/* Education Section - Updated with Framer Motion Bubbles */}
                 <section
                     ref={educationSectionRef}
-                    className="py-16 md:py-24 relative overflow-hidden"
+                    className="py-16 md:py-24 relative overflow-hidden bg-white"
                 >
                     <div className="container mx-auto px-4 relative z-10">
                         <motion.div
@@ -688,10 +685,10 @@ function PersonalityTest() {
                             viewport={{ once: true }}
                             className="text-center mb-16"
                         >
-                            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                                NexVest helps you in <span className="text-[#0AFFFF]">bursting the myths</span> about investing
+                            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-blue-900">
+                                NexVest helps you in <span className="text-[#1E3A8A]">bursting the myths</span> about investing
                             </h2>
-                            <p className="text-gray-300 max-w-2xl mx-auto">
+                            <p className="text-blue-900 font-medium max-w-2xl mx-auto">
                                 Watch as investment myths pop while facts rise to the top. Understanding the
                                 difference between facts and myths is crucial for making informed investment decisions.
                             </p>
@@ -701,8 +698,8 @@ function PersonalityTest() {
                         <div
                             className="relative h-[500px] md:h-[600px] w-full overflow-hidden rounded-xl"
                             style={{
-                                background: 'linear-gradient(180deg, rgba(13, 12, 52, 0) 0%, rgba(13, 12, 52, 0.8) 100%)',
-                                boxShadow: 'inset 0 0 20px rgba(10, 255, 255, 0.1)'
+                                background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(240, 249, 255, 0.8) 100%)',
+                                boxShadow: 'inset 0 0 20px rgba(30, 58, 138, 0.1)'
                             }}
                         >
                             {showBubbles && (
@@ -713,20 +710,14 @@ function PersonalityTest() {
                         {/* Legend */}
                         <div className="max-w-md mx-auto mt-8 flex justify-center gap-8">
                             <div className="flex items-center">
-                                <div className="w-4 h-4 rounded-full bg-[#0AFFFF]/80 mr-2"></div>
-                                <span>Investment Facts</span>
+                                <div className="w-4 h-4 rounded-full bg-[#1E3A8A]/80 mr-2"></div>
+                                <span className="text-blue-900 font-semibold">Investment Facts</span>
                             </div>
                             <div className="flex items-center">
                                 <div className="w-4 h-4 rounded-full bg-[#FF6B6B]/80 mr-2"></div>
-                                <span>Investment Myths</span>
+                                <span className="text-blue-900 font-semibold">Investment Myths</span>
                             </div>
                         </div>
-
-                        {/* Facts & Myths Lists */}
-                        {/* ... keep existing content ... */}
-
-                        {/* CTA */}
-                        {/* ... keep existing content ... */}
                     </div>
                 </section>
             </main>
